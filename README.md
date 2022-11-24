@@ -1,6 +1,6 @@
 
 
-https://user-images.githubusercontent.com/98588940/203777764-eaec8890-1e71-48c5-8825-c2ef055b57fb.mp4
+
 
 # phone_number_input_fromscratch
 
