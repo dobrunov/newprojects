@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
+import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/init_flag_code.dart';
 import 'package:provider/provider.dart';
-import 'constants/constants.dart';
+
 import 'models/country.dart';
 
 // import 'package:google_fonts/google_fonts.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:phone_number_input_fromscratch/constants/constants.dart';
+
+import '../styles/styles.dart';
 
 class HintSymbolsWithOpacity extends StatelessWidget {
   final double opacity;

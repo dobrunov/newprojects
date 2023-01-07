@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/opacity_row.dart';
 import 'package:phone_number_input_fromscratch/widgets/second_screen.dart';
 import 'package:provider/provider.dart';
-
-import 'constants/constants.dart';
 import 'country_selector.dart';
 import 'hint_text/hint_text.dart';
 
@@ -48,7 +47,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var opacityList = context.watch<HintOpacityController>().getOpacity;
-    // var opacityList = context.watch<HintOpacityController>().getHintBest;
+
+    ///
     return Column(
       children: [
         /// HEADER
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
             Padding(
-              padding: EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 0.0),
+              padding: paddingLeftTopRight155015,
               child: Text(
                 'Get Started',
                 style: header1,
@@ -70,14 +70,14 @@ class _HomePageState extends State<HomePage> {
 
         /// CODE & PHONE INPUT
         Padding(
-          padding: const EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+          padding: paddingLeftRight15,
           child: Row(
             children: [
               /// Flag-code
               Container(
                 height: 48,
                 width: 110,
-                padding: const EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
+                padding: paddingLeftRight5,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: lightField,
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                             .changeString(newOpacity),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(0.0),
+                        padding: EdgeInsets.zero,
                         child: OpacityRow(opacityList: opacityList),
                       ),
                     ]),
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+              padding: paddingRight15,
               child: SizedBox(
                 height: 48,
                 width: 48,

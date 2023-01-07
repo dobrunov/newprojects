@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/country_provider.dart';
-import 'constants/constants.dart';
+
 import 'hint_text/hint_text.dart';
 import 'home_page.dart';
 

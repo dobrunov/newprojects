@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants.dart';
+import '../styles/styles.dart';
 
 class SecondScreen extends StatefulWidget {
   const SecondScreen({Key? key}) : super(key: key);
