@@ -13,7 +13,6 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(scaffoldBackgroundColor: background),
       home: Scaffold(
         body: Center(

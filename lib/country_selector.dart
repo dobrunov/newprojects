@@ -8,8 +8,6 @@ import 'package:provider/provider.dart';
 
 import 'models/country.dart';
 
-// import 'package:google_fonts/google_fonts.dart';
-
 class CountrySelector extends StatefulWidget {
   const CountrySelector({Key? key}) : super(key: key);
 
@@ -27,8 +25,6 @@ class _CountrySelectorState extends State<CountrySelector> {
 
   String _initFlag = InitFlagCode().initFlag;
   String _initCode = InitFlagCode().initCode;
-
-  // set setFlag(String name) => _initFlag = name;
 
   @override
   void initState() {
@@ -121,7 +117,7 @@ class _CountrySelectorState extends State<CountrySelector> {
               ),
               const SizedBox(height: 8),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
+                padding: paddingLeftRight20,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

@@ -39,6 +39,7 @@ const countryCodeText =
 const marginLeft10 = EdgeInsets.only(left: 10);
 const paddingAll10 = EdgeInsets.all(10);
 const paddingLeftRight15 = EdgeInsets.only(left: 15.0, right: 15.0);
+const paddingLeftRight20 = EdgeInsets.only(left: 20.0, right: 20.0);
 const paddingLeftRight5 = EdgeInsets.only(left: 5.0, right: 5.0);
 const paddingRight15 = EdgeInsets.only(right: 15.0);
 const paddingLeftTopRight155015 = EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 0.0),
