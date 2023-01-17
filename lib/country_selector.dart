@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/country_button_content.dart';
 import 'package:phone_number_input_fromscratch/widgets/country_code_tile.dart';
-import 'package:phone_number_input_fromscratch/widgets/country_name_widget.dart';
-import 'package:phone_number_input_fromscratch/widgets/image_code_widget.dart';
 import 'package:phone_number_input_fromscratch/widgets/init_flag_code.dart';
 import 'package:phone_number_input_fromscratch/widgets/modal_label.dart';
 import 'package:phone_number_input_fromscratch/widgets/search_field_widget.dart';
