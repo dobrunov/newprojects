@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
+import 'package:phone_number_input_fromscratch/widgets/header_widget.dart';
+import 'package:phone_number_input_fromscratch/widgets/next_button.dart';
 import 'package:phone_number_input_fromscratch/widgets/opacity_row.dart';
 import 'package:phone_number_input_fromscratch/widgets/second_screen.dart';
 import 'package:provider/provider.dart';
@@ -52,21 +54,8 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: [
         /// HEADER
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Padding(
-              padding: paddingLeftTopRight155015,
-              child: Text(
-                'Get Started',
-                style: header1,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 100,
-        ),
+        const HeaderWidget(),
+        gap100,
 
         /// CODE & PHONE INPUT
         Padding(
@@ -83,7 +72,10 @@ class _HomePageState extends State<HomePage> {
                   color: lightField,
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: const CountrySelector(),
+                child:
+
+                    ///
+                    const CountrySelector(),
               ),
 
               /// Phone number
@@ -134,69 +126,12 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        const SizedBox(
-          height: 124,
-        ),
+        gap124,
 
         /// BUTTON
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: paddingRight15,
-              child: SizedBox(
-                height: 48,
-                width: 48,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.disabled)) {
-                        return buttonDisabledColor;
-                      }
-                      return buttonEnabledColor;
-                    }),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
-                  ),
-                  onPressed: isButtonActive
-                      ? () {
-                          print('Your number win 100 euro');
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SecondScreen(),
-                            ),
-                          );
-
-                          Future.delayed(const Duration(seconds: 1), () {
-                            controller.clear();
-                            // print('delayed execution');
-                            Provider.of<HintOpacityController>(context,
-                                    listen: false)
-                                .changeString('');
-                          });
-                        }
-                      : null,
-                  child: const Center(
-                    child: Padding(
-                      padding: EdgeInsets.zero,
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_forward,
-                          color: buttonIconColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
+        NextButton(
+          isButtonActive: isButtonActive,
+          controller: controller,
         ),
       ],
     );
