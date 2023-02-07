@@ -8,32 +8,20 @@ const hintTextColor = Color(0xFF7886B8);
 const white = Color(0xFFFFFFFF);
 
 /// HEADER
-const header1 =
-    TextStyle(color: white, fontWeight: FontWeight.bold, fontSize: 32);
+const header1 = TextStyle(color: white, fontWeight: FontWeight.bold, fontSize: 32);
 
 /// PHONE NUMBER INPUT
-
-const phoneNumberText = TextStyle(
-  color: textColor,
-  fontSize: 16,
-  letterSpacing: 0.2,
-);
+const phoneNumberText = TextStyle(color: textColor, fontSize: 16, letterSpacing: 0.2);
 const hintTextStyle = TextStyle(color: hintTextColor, fontSize: 16);
-
-/// COUNTRY SEARCH INPUT
 
 /// BUTTON
 const buttonDisabledColor = lightField;
 const buttonEnabledColor = white;
 const buttonIconColor = hintTextColor;
 
-/// COUNTRY NAME TEXT
-const countryNameText =
-    TextStyle(color: white, fontWeight: FontWeight.bold, fontSize: 16);
-
-/// COUNTRY CODE TEXT
-const countryCodeText =
-    TextStyle(color: textColor, fontWeight: FontWeight.w500, fontSize: 16);
+/// TEXT
+const countryNameText = TextStyle(color: white, fontWeight: FontWeight.bold, fontSize: 16);
+const countryCodeText = TextStyle(color: textColor, fontWeight: FontWeight.w500, fontSize: 16);
 
 /// MARGINS & PADDINGS
 const marginLeft10 = EdgeInsets.only(left: 10);
