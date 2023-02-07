@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:phone_number_input_fromscratch/styles/styles.dart';
+import 'package:provider/provider.dart';
+
+import 'package:phone_number_input_fromscratch/widgets/phone_number_text_field.dart';
 import 'package:phone_number_input_fromscratch/widgets/header_widget.dart';
 import 'package:phone_number_input_fromscratch/widgets/next_button.dart';
-import 'package:phone_number_input_fromscratch/widgets/opacity_row.dart';
-import 'package:phone_number_input_fromscratch/widgets/second_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:phone_number_input_fromscratch/styles/styles.dart';
+
 import 'country_selector.dart';
 import 'hint_text/hint_text.dart';
 
@@ -19,9 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var maskFormatter = MaskTextInputFormatter(
-      mask: '(###) ###-####',
-      filter: {"#": RegExp(r'[0-9]')},
-      type: MaskAutoCompletionType.lazy);
+      mask: '(###) ###-####', filter: {"#": RegExp(r'[0-9]')}, type: MaskAutoCompletionType.lazy);
 
   late TextEditingController controller;
 
@@ -73,8 +71,7 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child:
-
-                    ///
+                    //
                     const CountrySelector(),
               ),
 
@@ -89,37 +86,12 @@ class _HomePageState extends State<HomePage> {
                     color: lightField,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Form(
-                    child: Stack(children: [
-                      TextFormField(
-                        controller: controller,
-                        style: phoneNumberText,
-                        autofocus: true,
-                        cursorColor: textColor,
-                        cursorWidth: 2,
-                        cursorHeight: 20,
-                        keyboardType: TextInputType.phone,
-                        inputFormatters: [
-                          maskFormatter,
-                          FilteringTextInputFormatter(
-                              RegExp(r'^[()\d -]{1,14}$'),
-                              allow: true),
-                        ],
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          isCollapsed: true,
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                        ),
-                        onChanged: (newOpacity) => context
-                            .read<HintOpacityController>()
-                            .changeString(newOpacity),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.zero,
-                        child: OpacityRow(opacityList: opacityList),
-                      ),
-                    ]),
+                  child:
+                      //
+                      PhoneNumberTextField(
+                    controller: controller,
+                    maskFormatter: maskFormatter,
+                    opacityList: opacityList,
                   ),
                 ),
               ),
