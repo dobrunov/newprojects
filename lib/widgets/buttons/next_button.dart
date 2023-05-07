@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:phone_number_input_fromscratch/widgets/second_screen.dart';
+import 'package:phone_number_input_fromscratch/pages/second_page.dart';
 import 'package:provider/provider.dart';
 
-import '../hint_text/hint_text.dart';
-import '../styles/styles.dart';
+import '../../hint_text/hint_text.dart';
+import '../../styles/styles.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({
@@ -28,8 +28,7 @@ class NextButton extends StatelessWidget {
             child: ElevatedButton(
               style: ButtonStyle(
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                    (Set<MaterialState> states) {
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
                   if (states.contains(MaterialState.disabled)) {
                     return buttonDisabledColor;
                   }
@@ -47,16 +46,14 @@ class NextButton extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SecondScreen(),
+                          builder: (context) => const SecondPage(),
                         ),
                       );
 
                       Future.delayed(const Duration(seconds: 1), () {
                         controller.clear();
                         // print('delayed execution');
-                        Provider.of<HintOpacityController>(context,
-                                listen: false)
-                            .changeString('');
+                        Provider.of<HintOpacityController>(context, listen: false).changeString('');
                       });
                     }
                   : null,

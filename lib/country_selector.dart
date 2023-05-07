@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
-import 'package:phone_number_input_fromscratch/widgets/country_button_content.dart';
+import 'package:phone_number_input_fromscratch/widgets/buttons/country_button_content.dart';
 import 'package:phone_number_input_fromscratch/widgets/country_code_tile.dart';
-import 'package:phone_number_input_fromscratch/widgets/init_flag_code.dart';
+import 'package:phone_number_input_fromscratch/utils/init_flag_code.dart';
 import 'package:phone_number_input_fromscratch/widgets/modal_label.dart';
-import 'package:phone_number_input_fromscratch/widgets/search_field_widget.dart';
+import 'package:phone_number_input_fromscratch/widgets/fields/search_field_widget.dart';
 import 'package:provider/provider.dart';
 
 import 'models/country.dart';
@@ -19,7 +19,7 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
-  List<Country> countries = [];
+  // List<Country> countries = [];
 
   var isLoaded = false;
 

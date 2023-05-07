@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
-import '../hint_text/hint_text.dart';
-import '../styles/styles.dart';
-import 'opacity_row.dart';
+import '../../hint_text/hint_text.dart';
+import '../../styles/styles.dart';
+import '../opacity_row.dart';
 
 class PhoneNumberTextField extends StatelessWidget {
   const PhoneNumberTextField({

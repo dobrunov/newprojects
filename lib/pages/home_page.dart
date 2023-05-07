@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
-import 'package:phone_number_input_fromscratch/widgets/phone_number_text_field.dart';
+import 'package:phone_number_input_fromscratch/widgets/fields/phone_number_text_field.dart';
 import 'package:phone_number_input_fromscratch/widgets/header_widget.dart';
-import 'package:phone_number_input_fromscratch/widgets/next_button.dart';
+import 'package:phone_number_input_fromscratch/widgets/buttons/next_button.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
 
-import 'country_selector.dart';
-import 'hint_text/hint_text.dart';
+import '../country_selector.dart';
+import '../hint_text/hint_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
