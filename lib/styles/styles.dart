@@ -37,5 +37,5 @@ const paddingLeftTopRight155015 = EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 0.0);
 
 /// GAPs
 const gap50 = SizedBox(height: 50);
-const gap100 = SizedBox(height: 100);
-const gap124 = SizedBox(height: 124);
+const sizedBoxHeigh100 = SizedBox(height: 100);
+const sizedBoxHeight124 = SizedBox(height: 124);

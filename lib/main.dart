@@ -3,8 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../provider/country_provider.dart';
 import '../styles/styles.dart';
-
-import 'hint_text/hint_text.dart';
+import 'controller/opacity_controller.dart';
 import 'pages/home_page.dart';
 
 void main() => runApp(const MyApp());

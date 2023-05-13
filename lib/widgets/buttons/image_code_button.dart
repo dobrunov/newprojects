@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../styles/styles.dart';
+import '../../styles/styles.dart';
 
 class ImageCodeWidget extends StatelessWidget {
   const ImageCodeWidget({
@@ -17,8 +17,7 @@ class ImageCodeWidget extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       ClipRRect(
         borderRadius: BorderRadius.circular(4.0),
-        child:
-            Image.network(flags, width: 24.0, height: 20.0, fit: BoxFit.fill),
+        child: Image.network(flags, width: 24.0, height: 20.0, fit: BoxFit.fill),
       ),
       Text(
         '+$codes',

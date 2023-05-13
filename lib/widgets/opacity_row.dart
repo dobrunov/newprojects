@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../hint_text/hint_text.dart';
+import '../utils/hint_text.dart';
 
 class OpacityRow extends StatelessWidget {
   const OpacityRow({

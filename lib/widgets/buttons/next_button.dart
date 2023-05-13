@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:phone_number_input_fromscratch/pages/second_page.dart';
 import 'package:provider/provider.dart';
 
-import '../../hint_text/hint_text.dart';
+import '../../controller/opacity_controller.dart';
+import '../../utils/hint_text.dart';
 import '../../styles/styles.dart';
 
 class NextButton extends StatelessWidget {

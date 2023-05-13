@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/country.dart';
 import 'country_name_widget.dart';
-import 'image_code_widget.dart';
+import 'buttons/image_code_button.dart';
 
 class CountryCodeTile extends StatelessWidget {
   const CountryCodeTile({
