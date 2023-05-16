@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
 
-import '../controller/opacity_controller.dart';
 import '../widgets/header_widget.dart';
 import '../widgets/buttons/next_button.dart';
 import '../styles/styles.dart';
@@ -20,7 +18,6 @@ class _HomePageState extends State<HomePage> {
   var maskFormatter = MaskTextInputFormatter(
       mask: '(###) ###-####', filter: {"#": RegExp(r'[0-9]')}, type: MaskAutoCompletionType.lazy);
 
-  late List<double> opacityList;
   late TextEditingController controller;
 
   bool isButtonActive = true;
@@ -45,21 +42,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  void didChangeDependencies() {
-    opacityList = context.watch<HintOpacityController>().getOpacity;
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    ///
+    //
     return Column(
       children: [
-        /// HEADER
         const HeaderWidget(),
         sizedBoxHeigh100,
 
-        /// CODE & PHONE INPUT
+        // CODE & PHONE INPUT
         Padding(
           padding: paddingLeftRight15,
           child: Row(
@@ -70,14 +60,12 @@ class _HomePageState extends State<HomePage> {
               PhoneNumberWidget(
                 controller: controller,
                 maskFormatter: maskFormatter,
-                opacityList: opacityList,
               ),
             ],
           ),
         ),
         sizedBoxHeight124,
-
-        /// BUTTON
+        //
         NextButton(
           isButtonActive: isButtonActive,
           controller: controller,

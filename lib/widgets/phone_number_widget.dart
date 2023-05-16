@@ -9,12 +9,10 @@ class PhoneNumberWidget extends StatelessWidget {
     super.key,
     required this.controller,
     required this.maskFormatter,
-    required this.opacityList,
   });
 
   final TextEditingController controller;
   final MaskTextInputFormatter maskFormatter;
-  final List<double> opacityList;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,6 @@ class PhoneNumberWidget extends StatelessWidget {
           child: PhoneNumberTextField(
             controller: controller,
             maskFormatter: maskFormatter,
-            opacityList: opacityList,
           ),
         ),
       ),

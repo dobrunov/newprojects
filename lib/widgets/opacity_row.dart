@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../controller/opacity_controller.dart';
 import '../utils/hint_text.dart';
 
-class OpacityRow extends StatelessWidget {
-  const OpacityRow({
+class OpacityRow extends StatefulWidget {
+  OpacityRow({
     Key? key,
-    required this.opacityList,
   }) : super(key: key);
 
-  final List<double> opacityList;
+  @override
+  State<OpacityRow> createState() => _OpacityRowState();
+}
+
+class _OpacityRowState extends State<OpacityRow> {
+  late List<double> opacityList;
+  late List<String> maskList;
+
+  @override
+  void didChangeDependencies() {
+    opacityList = context.watch<HintOpacityController>().getOpacity;
+    maskList = context.watch<HintOpacityController>().getMaskList;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
-    //
-    List<String> maskList = ['(', '1', '2', '3', ')', ' ', '1', '2', '3', '-', '1', '2', '3', '4'];
-    //
     return IgnorePointer(
       ignoring: true,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 150,
+            width: maskList.length * 10,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 14,
+              itemCount: maskList.length,
               itemBuilder: (BuildContext context, int index) {
                 return HintSymbolsWithOpacity(opacityList[index], maskList[index]);
               },

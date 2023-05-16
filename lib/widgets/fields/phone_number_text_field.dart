@@ -12,12 +12,10 @@ class PhoneNumberTextField extends StatelessWidget {
     Key? key,
     required this.controller,
     required this.maskFormatter,
-    required this.opacityList,
   }) : super(key: key);
 
   final TextEditingController controller;
   final MaskTextInputFormatter maskFormatter;
-  final List<double> opacityList;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +43,7 @@ class PhoneNumberTextField extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.zero,
-          child: OpacityRow(opacityList: opacityList),
+          child: OpacityRow(),
         ),
       ]),
     );

@@ -5,8 +5,10 @@ class HintOpacityController with ChangeNotifier {
 
   List<double> _showHintOpacity = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
   List<double> currentHintOpacity = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+  final List<String> _maskList = ['(', '1', '2', '3', ')', ' ', '1', '2', '3', '-', '1', '2', '3', '4'];
 
   List<double> get getOpacity => _showHintOpacity;
+  List<String> get getMaskList => _maskList;
 
   void changeString(String newString) {
     ///
