@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../controller/mask_controller.dart';
 import '../controller/opacity_controller.dart';
 import '../utils/hint_text.dart';
 
@@ -20,7 +21,7 @@ class _OpacityRowState extends State<OpacityRow> {
   @override
   void didChangeDependencies() {
     opacityList = context.watch<HintOpacityController>().getOpacity;
-    maskList = context.watch<HintOpacityController>().getMaskList;
+    maskList = context.watch<MaskController>().getMaskList;
     super.didChangeDependencies();
   }
 

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'mask_controller.dart';
+
 class HintOpacityController with ChangeNotifier {
   ///
 
-  List<double> _showHintOpacity = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
-  List<double> currentHintOpacity = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
-  final List<String> _maskList = ['(', '1', '2', '3', ')', ' ', '1', '2', '3', '-', '1', '2', '3', '4'];
+  MaskController maskList = MaskController();
+  List<double> _showHintOpacity = [];
+  List<double> _currentHintOpacity = [];
 
   List<double> get getOpacity => _showHintOpacity;
-  List<String> get getMaskList => _maskList;
+
+  HintOpacityController() {
+    _showHintOpacity = List.generate(maskList.getMaskList.length, (int index) => 1.0, growable: false);
+    _currentHintOpacity = List.generate(maskList.getMaskList.length, (int index) => 1.0, growable: false);
+  }
 
   void changeString(String newString) {
     ///
@@ -17,14 +23,14 @@ class HintOpacityController with ChangeNotifier {
 
     ///
     for (var i = 0; i <= newStringLength - 1; i++) {
-      currentHintOpacity[i] = 0;
+      _currentHintOpacity[i] = 0;
     }
-    for (var y = newStringLength; y <= currentHintOpacity.length - 1; y++) {
-      currentHintOpacity[y] = 1;
+    for (var y = newStringLength; y <= _currentHintOpacity.length - 1; y++) {
+      _currentHintOpacity[y] = 1;
     }
 
     ///
-    _showHintOpacity = currentHintOpacity;
+    _showHintOpacity = _currentHintOpacity;
     notifyListeners();
   }
 }
