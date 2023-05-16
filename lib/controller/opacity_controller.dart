@@ -5,15 +5,15 @@ import 'mask_controller.dart';
 class HintOpacityController with ChangeNotifier {
   ///
 
-  MaskController maskList = MaskController();
+  MaskController maskController = MaskController();
   List<double> _showHintOpacity = [];
   List<double> _currentHintOpacity = [];
 
   List<double> get getOpacity => _showHintOpacity;
 
   HintOpacityController() {
-    _showHintOpacity = List.generate(maskList.getMaskList.length, (int index) => 1.0, growable: false);
-    _currentHintOpacity = List.generate(maskList.getMaskList.length, (int index) => 1.0, growable: false);
+    _showHintOpacity = List.generate(maskController.getMaskList.length, (int index) => 1.0, growable: false);
+    _currentHintOpacity = List.generate(maskController.getMaskList.length, (int index) => 1.0, growable: false);
   }
 
   void changeString(String newString) {

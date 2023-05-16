@@ -4,10 +4,11 @@ import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/buttons/country_button_content.dart';
 import 'package:phone_number_input_fromscratch/widgets/country_code_tile.dart';
-import 'package:phone_number_input_fromscratch/utils/init_flag_code.dart';
 import 'package:phone_number_input_fromscratch/widgets/modal_label.dart';
 import 'package:phone_number_input_fromscratch/widgets/fields/search_field_widget.dart';
 import 'package:provider/provider.dart';
+
+import '../config.dart';
 
 class CountrySelector extends StatefulWidget {
   const CountrySelector({Key? key}) : super(key: key);
@@ -17,14 +18,13 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
-
   var isLoaded = false;
 
   final _controller = TextEditingController();
   late String _searchText;
 
-  String _initFlag = InitFlagCode().initFlag;
-  String _initCode = InitFlagCode().initCode;
+  String _initFlag = Config().initFlag;
+  String _initCode = Config().initCode;
 
   @override
   void initState() {

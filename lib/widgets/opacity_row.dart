@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 
 import '../controller/mask_controller.dart';
 import '../controller/opacity_controller.dart';
-import '../utils/hint_text.dart';
+import 'hint_text.dart';
 
 class OpacityRow extends StatefulWidget {
-  OpacityRow({
+  const OpacityRow({
     Key? key,
   }) : super(key: key);
 

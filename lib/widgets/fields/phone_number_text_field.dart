@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +30,7 @@ class PhoneNumberTextField extends StatelessWidget {
           keyboardType: TextInputType.phone,
           inputFormatters: [
             maskFormatter,
-            FilteringTextInputFormatter(RegExp(r'^[()\d -]{1,14}$'), allow: true),
+            // FilteringTextInputFormatter(RegExp(r'^[()\d -]{1,14}$'), allow: true),
           ],
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: const InputDecoration(
@@ -41,7 +40,7 @@ class PhoneNumberTextField extends StatelessWidget {
           ),
           onChanged: (newOpacity) => context.read<HintOpacityController>().changeString(newOpacity),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.zero,
           child: OpacityRow(),
         ),

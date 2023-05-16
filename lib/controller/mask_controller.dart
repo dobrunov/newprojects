@@ -1,5 +1,5 @@
 class MaskController {
-  String maskText = "(123) 123-1234";
+  String maskText = "(123) 123-1134";
   List<String> _maskList = [];
 
   MaskController() {
