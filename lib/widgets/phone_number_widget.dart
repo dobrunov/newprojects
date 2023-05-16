@@ -28,12 +28,13 @@ class PhoneNumberWidget extends StatelessWidget {
           color: lightField,
           borderRadius: BorderRadius.circular(16),
         ),
-        child:
-            //
-            PhoneNumberTextField(
-          controller: controller,
-          maskFormatter: maskFormatter,
-          opacityList: opacityList,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child: PhoneNumberTextField(
+            controller: controller,
+            maskFormatter: maskFormatter,
+            opacityList: opacityList,
+          ),
         ),
       ),
     );

@@ -12,25 +12,24 @@ class OpacityRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //
+    List<String> maskList = ['(', '1', '2', '3', ')', ' ', '1', '2', '3', '-', '1', '2', '3', '4'];
+    //
     return IgnorePointer(
       ignoring: true,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          HintSymbolsWithOpacity(opacityList[0], '('),
-          HintSymbolsWithOpacity(opacityList[1], '1'),
-          HintSymbolsWithOpacity(opacityList[2], '2'),
-          HintSymbolsWithOpacity(opacityList[3], '3'),
-          HintSymbolsWithOpacity(opacityList[4], ')'),
-          HintSymbolsWithOpacity(opacityList[5], ' '),
-          HintSymbolsWithOpacity(opacityList[6], '1'),
-          HintSymbolsWithOpacity(opacityList[7], '2'),
-          HintSymbolsWithOpacity(opacityList[8], '3'),
-          HintSymbolsWithOpacity(opacityList[9], '-'),
-          HintSymbolsWithOpacity(opacityList[10], '1'),
-          HintSymbolsWithOpacity(opacityList[11], '2'),
-          HintSymbolsWithOpacity(opacityList[12], '3'),
-          HintSymbolsWithOpacity(opacityList[13], '4'),
+          SizedBox(
+            width: 150,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 14,
+              itemBuilder: (BuildContext context, int index) {
+                return HintSymbolsWithOpacity(opacityList[index], maskList[index]);
+              },
+            ),
+          ),
         ],
       ),
     );

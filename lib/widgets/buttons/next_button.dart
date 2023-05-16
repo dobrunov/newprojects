@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:phone_number_input_fromscratch/pages/second_page.dart';
 import 'package:provider/provider.dart';
 
+import '../../pages/second_page.dart';
 import '../../controller/opacity_controller.dart';
-import '../../utils/hint_text.dart';
 import '../../styles/styles.dart';
 
 class NextButton extends StatelessWidget {
@@ -53,7 +52,6 @@ class NextButton extends StatelessWidget {
 
                       Future.delayed(const Duration(seconds: 1), () {
                         controller.clear();
-                        // print('delayed execution');
                         Provider.of<HintOpacityController>(context, listen: false).changeString('');
                       });
                     }

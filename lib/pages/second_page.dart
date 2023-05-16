@@ -24,6 +24,7 @@ class _SecondPageState extends State<SecondPage> {
             gap50,
             IconButton(
               onPressed: () {
+                // add func for reset button value
                 Navigator.pop(context);
               },
               icon: const Icon(
