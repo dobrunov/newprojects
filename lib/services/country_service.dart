@@ -1,21 +1,29 @@
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../models/country.dart';
 
 class CountryService {
+  static const String _baseUrl = 'https://restcountries.com/v2/all';
+
   Future<List<Country>> getAll() async {
-    ///
-    const url = 'https://restcountries.com/v2/all';
-    final uri = Uri.parse(url);
+    final uri = Uri.parse(_baseUrl);
 
-    ///
-    final response = await http.get(uri);
+    try {
+      final response = await http.get(uri);
 
-    ///
-    if (response.statusCode == 200) {
-      var json = response.body;
-      return countryFromJson(json);
+      if (response.statusCode == 200) {
+        return _parseCountries(response.body);
+      } else {
+        throw Exception("Failed to load countries, Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Failed to fetch countries: $e");
     }
-    throw Exception("Error");
+  }
+
+  List<Country> _parseCountries(String responseBody) {
+    final parsed = json.decode(responseBody) as List<dynamic>;
+    return parsed.map((json) => Country.fromJson(json)).toList();
   }
 }
