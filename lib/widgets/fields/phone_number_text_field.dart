@@ -2,19 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
-import '../../controller/opacity_controller.dart';
+import '../../controllers/button_active_controller.dart';
+import '../../controllers/opacity_controller.dart';
+import '../../controllers/text_controller.dart';
 import '../../styles/styles.dart';
 import '../opacity_row.dart';
 
-class PhoneNumberTextField extends StatelessWidget {
+class PhoneNumberTextField extends StatefulWidget {
   const PhoneNumberTextField({
     Key? key,
-    required this.controller,
-    required this.maskFormatter,
   }) : super(key: key);
 
-  final TextEditingController controller;
-  final MaskTextInputFormatter maskFormatter;
+  @override
+  State<PhoneNumberTextField> createState() => _PhoneNumberTextFieldState();
+}
+
+class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
+  late final TextEditingController controller;
+
+  @override
+  void didChangeDependencies() {
+    final textController = Provider.of<TextController>(context);
+    controller = textController.controller;
+    controller.addListener(() {
+      context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
+    });
+    super.didChangeDependencies();
+  }
+
+  final maskFormatter = MaskTextInputFormatter(
+    mask: '(###) ###-####',
+    filter: {"#": RegExp(r'[0-9]')},
+    type: MaskAutoCompletionType.lazy,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +48,7 @@ class PhoneNumberTextField extends StatelessWidget {
           cursorWidth: 2,
           cursorHeight: 20,
           keyboardType: TextInputType.phone,
-          inputFormatters: [
-            maskFormatter,
-            // FilteringTextInputFormatter(RegExp(r'^[()\d -]{1,14}$'), allow: true),
-          ],
+          inputFormatters: [maskFormatter],
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: const InputDecoration(
             border: InputBorder.none,

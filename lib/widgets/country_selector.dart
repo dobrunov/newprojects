@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/buttons/country_button_content.dart';
@@ -9,6 +8,7 @@ import 'package:phone_number_input_fromscratch/widgets/fields/search_field_widge
 import 'package:provider/provider.dart';
 
 import '../config.dart';
+import '../models/country.dart';
 
 class CountrySelector extends StatefulWidget {
   const CountrySelector({Key? key}) : super(key: key);
@@ -18,134 +18,118 @@ class CountrySelector extends StatefulWidget {
 }
 
 class _CountrySelectorState extends State<CountrySelector> {
-  var isLoaded = false;
-
   final _controller = TextEditingController();
-  late String _searchText;
-
-  String _initFlag = Config().initFlag;
-  String _initCode = Config().initCode;
 
   @override
   void initState() {
-    _controller.addListener(
-      () {
-        setState(() {
-          _searchText = _controller.text;
-        });
-      },
-    );
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<CountryProvider>(context, listen: false).getAllCountries();
+    // Fetch countries only once after frame is built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<CountryProvider>().getAllCountries();
     });
+
+    _controller.addListener(_onSearchChanged);
   }
 
   @override
   void dispose() {
+    _controller.removeListener(_onSearchChanged);
     _controller.dispose();
     super.dispose();
   }
 
+  void _onSearchChanged() {
+    context.read<CountryProvider>().changeSearchString(_controller.text);
+  }
+
   @override
   Widget build(BuildContext context) {
-    ///
+    // Obtain flag and code from provider directly
+    final countryProvider = context.watch<CountryProvider>();
+
     return TextButton(
+      onPressed: _showCountrySelectorSheet,
       child: CountryButtonContent(
-        initFlag: _initFlag,
-        initCode: _initCode,
+        initFlag: countryProvider.selectedFlag,
+        initCode: countryProvider.selectedCode,
       ),
-      onPressed: () {
-        _onButtonPressed();
-      },
     );
   }
 
-  void _onButtonPressed() {
+  void _showCountrySelectorSheet() {
     showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: background,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20),
-          ),
-        ),
-        context: context,
-        builder: (context) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 20, 20.0, 15),
-                child:
-
-                    /// LABEL
-                    ModalLabel(controller: _controller),
-              ),
-
-              ///
-              const SizedBox(height: 8),
-              Padding(
-                padding: paddingLeftRight20,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    /// SEARCH FIELD
-                    SearchFieldWidget(controller: _controller),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.72,
-                      child: Consumer<CountryProvider>(
-                        builder: (context, value, child) {
-                          if (value.isLoading) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-
-                          /// COUNTRY CODE LIST
-                          final countries = value.bestCountries;
-                          return ListView.builder(
-                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-                            shrinkWrap: true,
-                            itemCount: countries.length,
-                            itemBuilder: (context, index) {
-                              final country = countries[index];
-                              return Container(
-                                padding: const EdgeInsets.all(16),
-                                decoration: const BoxDecoration(
-                                  color: background,
-                                ),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    _selectItem((country.flags.png), ('+${country.callingCodes.first}'));
-                                    _controller.clear();
-                                    //
-                                    Provider.of<CountryProvider>(context, listen: false).changeSearchString('');
-                                  },
-                                  child: CountryCodeTile(country: country),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          );
-        });
+      isScrollControlled: true,
+      backgroundColor: background,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      context: context,
+      builder: (context) => _CountrySelectorSheet(controller: _controller),
+    );
   }
+}
 
-  _selectItem(String initFlag, String initCode) {
-    Navigator.pop(context);
-    setState(() {
-      _initFlag = initFlag;
-      _initCode = initCode;
+class _CountrySelectorSheet extends StatelessWidget {
+  final TextEditingController controller;
 
-      ///
-    });
+  const _CountrySelectorSheet({required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: paddingLeftRight20,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20.0, 20, 20.0, 15),
+            child: ModalLabel(controller: controller),
+          ),
+          const SizedBox(height: 8),
+          SearchFieldWidget(controller: controller),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.72,
+            child: Consumer<CountryProvider>(
+              builder: (context, countryProvider, child) {
+                if (countryProvider.isLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                return _CountryList(countries: countryProvider.bestCountries);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CountryList extends StatelessWidget {
+  final List<Country> countries;
+
+  const _CountryList({required this.countries});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      shrinkWrap: true,
+      itemCount: countries.length,
+      itemBuilder: (context, index) {
+        final country = countries[index];
+        return GestureDetector(
+          onTap: () {
+            final countryProvider = context.read<CountryProvider>();
+            countryProvider.selectCountry(
+              flagUrl: country.flags.png,
+              code: '+${country.callingCodes.first}',
+            );
+            Navigator.pop(context);
+          },
+          child: CountryCodeTile(country: country),
+        );
+      },
+    );
   }
 }

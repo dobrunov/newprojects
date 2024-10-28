@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 
 import '../provider/country_provider.dart';
 import '../styles/styles.dart';
-import 'controller/mask_controller.dart';
-import 'controller/opacity_controller.dart';
+import 'controllers/button_active_controller.dart';
+import 'controllers/mask_controller.dart';
+import 'controllers/opacity_controller.dart';
+import 'controllers/text_controller.dart';
 import 'pages/home_page.dart';
 
 void main() => runApp(const MyApp());
@@ -18,10 +20,11 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<CountryProvider>(create: (context) => CountryProvider()),
         ChangeNotifierProvider<HintOpacityController>(create: (context) => HintOpacityController()),
+        ChangeNotifierProvider<ButtonActiveController>(create: (context) => ButtonActiveController()),
+        ChangeNotifierProvider(create: (_) => TextController()),
         Provider<MaskController>(create: (context) => MaskController()),
       ],
       child: MaterialApp(
-        title: 'phone_number_input_fromscratch',
         theme: ThemeData(
           scaffoldBackgroundColor: background,
           primaryColor: white,

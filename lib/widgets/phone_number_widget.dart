@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../styles/styles.dart';
 import 'fields/phone_number_text_field.dart';
 
 class PhoneNumberWidget extends StatelessWidget {
-  const PhoneNumberWidget({
-    super.key,
-    required this.controller,
-    required this.maskFormatter,
-  });
-
-  final TextEditingController controller;
-  final MaskTextInputFormatter maskFormatter;
+  const PhoneNumberWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +18,9 @@ class PhoneNumberWidget extends StatelessWidget {
           color: lightField,
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 4.0),
-          child: PhoneNumberTextField(
-            controller: controller,
-            maskFormatter: maskFormatter,
-          ),
+        child: const Padding(
+          padding: EdgeInsets.only(top: 4.0),
+          child: PhoneNumberTextField(),
         ),
       ),
     );

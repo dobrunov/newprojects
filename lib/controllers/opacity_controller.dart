@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'mask_controller.dart';
 
 class HintOpacityController with ChangeNotifier {
-  ///
-
   MaskController maskController = MaskController();
   List<double> _showHintOpacity = [];
   List<double> _currentHintOpacity = [];
@@ -17,11 +15,9 @@ class HintOpacityController with ChangeNotifier {
   }
 
   void changeString(String newString) {
-    ///
     /// Amount of entered symbols in text field
     int newStringLength = newString.length;
 
-    ///
     for (var i = 0; i <= newStringLength - 1; i++) {
       _currentHintOpacity[i] = 0;
     }
@@ -29,7 +25,6 @@ class HintOpacityController with ChangeNotifier {
       _currentHintOpacity[y] = 1;
     }
 
-    ///
     _showHintOpacity = _currentHintOpacity;
     notifyListeners();
   }
