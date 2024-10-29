@@ -22,12 +22,14 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
 
   @override
   void didChangeDependencies() {
-    final textController = Provider.of<TextControllers>(context);
-    controller = textController.phoneNumberTextController;
-    controller.addListener(() {
-      context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
-    });
     super.didChangeDependencies();
+
+    controller = Provider.of<TextControllers>(context, listen: false).phoneNumberTextController;
+    if (!controller.hasListeners) {
+      controller.addListener(() {
+        context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
+      });
+    }
   }
 
   final maskFormatter = MaskTextInputFormatter(
