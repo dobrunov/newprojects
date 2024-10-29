@@ -6,8 +6,11 @@ class HintSymbolsWithOpacity extends StatelessWidget {
   final double opacity;
   final String text;
 
-  const HintSymbolsWithOpacity(this.opacity, this.text, {Key? key})
-      : super(key: key);
+  const HintSymbolsWithOpacity({
+    Key? key,
+    required this.opacity,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +18,8 @@ class HintSymbolsWithOpacity extends StatelessWidget {
       opacity: opacity,
       child: Text(
         text,
-        style: hintTextStyle,
+        style: const TextStyle(color: hintTextColor, fontSize: 16),
       ),
     );
   }
 }
-
-

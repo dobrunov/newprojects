@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../controllers/text_controller.dart';
 import '../styles/styles.dart';
 
-class ModalLabel extends StatelessWidget {
-  const ModalLabel({
+class ModalHeader extends StatelessWidget {
+  const ModalHeader({
     Key? key,
     required TextEditingController controller,
   })  : _controller = controller,
@@ -16,7 +18,16 @@ class ModalLabel extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('Country code', style: header1),
+        // Header text
+        const Text(
+          'Country code',
+          style: TextStyle(
+            color: Color(0xFFFFFFFF),
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+          ),
+        ),
+        // Close button
         Container(
           height: 20,
           width: 20,
@@ -34,7 +45,7 @@ class ModalLabel extends StatelessWidget {
             padding: EdgeInsets.zero,
             icon: const Icon(Icons.close),
             iconSize: 15.0,
-            color: textColor,
+            color: const Color(0xFF594C74),
           ),
         ),
       ],

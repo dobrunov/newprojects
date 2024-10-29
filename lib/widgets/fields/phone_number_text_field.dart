@@ -22,8 +22,8 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
 
   @override
   void didChangeDependencies() {
-    final textController = Provider.of<TextController>(context);
-    controller = textController.controller;
+    final textController = Provider.of<TextControllers>(context);
+    controller = textController.phoneNumberTextController;
     controller.addListener(() {
       context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
     });
@@ -48,7 +48,10 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
           cursorWidth: 2,
           cursorHeight: 20,
           keyboardType: TextInputType.phone,
-          inputFormatters: [maskFormatter],
+          inputFormatters: [
+            maskFormatter,
+            // FilteringTextInputFormatter(RegExp(r'^[()\d -]{1,14}$'), allow: true),
+          ],
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: const InputDecoration(
             border: InputBorder.none,

@@ -19,9 +19,13 @@ class _SecondPageState extends State<SecondPage> {
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             const Text(
               'Happy time',
-              style: header1,
+              style: TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+              ),
             ),
-            gap50,
+            const SizedBox(height: 50),
             IconButton(
               onPressed: () {
                 // add func for reset button value
@@ -29,8 +33,8 @@ class _SecondPageState extends State<SecondPage> {
               },
               icon: const Icon(
                 Icons.close,
+                size: 20.0,
               ),
-              iconSize: 20.0,
             ),
             const Text('Back'),
           ]),

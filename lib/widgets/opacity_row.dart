@@ -38,7 +38,10 @@ class _OpacityRowState extends State<OpacityRow> {
               scrollDirection: Axis.horizontal,
               itemCount: maskList.length,
               itemBuilder: (BuildContext context, int index) {
-                return HintSymbolsWithOpacity(opacityList[index], maskList[index]);
+                return HintSymbolsWithOpacity(
+                  opacity: opacityList[index],
+                  text: maskList[index],
+                );
               },
             ),
           ),

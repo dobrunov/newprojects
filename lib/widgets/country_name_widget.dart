@@ -20,7 +20,11 @@ class CountryNameWidget extends StatelessWidget {
             countryName,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
-            style: countryNameText,
+            style: const TextStyle(
+              color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
           ),
         ],
       ),

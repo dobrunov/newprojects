@@ -5,14 +5,13 @@ import '../../controllers/opacity_controller.dart';
 import '../../controllers/text_controller.dart';
 import '../../controllers/button_active_controller.dart';
 import '../../pages/second_page.dart';
-import '../../styles/styles.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final textController = Provider.of<TextController>(context);
+    final textControllers = Provider.of<TextControllers>(context);
 
     return Consumer<ButtonActiveController>(
       builder: (context, buttonActiveController, child) {
@@ -20,7 +19,7 @@ class NextButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: paddingRight15,
+              padding: const EdgeInsets.only(right: 15.0),
               child: SizedBox(
                 height: 48,
                 width: 48,
@@ -29,27 +28,23 @@ class NextButton extends StatelessWidget {
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
                       if (states.contains(MaterialState.disabled)) {
-                        return buttonDisabledColor;
+                        return const Color(0x66F4F5FF);
                       }
-                      return buttonEnabledColor;
+                      return const Color(0xFFFFFFFF);
                     }),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    )),
                   ),
                   onPressed: buttonActiveController.isButtonActive
                       ? () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => const SecondPage(),
-                            ),
+                            MaterialPageRoute(builder: (context) => const SecondPage()),
                           );
 
                           Future.delayed(const Duration(seconds: 1), () {
-                            textController.controller.clear();
+                            textControllers.clearPhoneNumberText();
                             Provider.of<HintOpacityController>(context, listen: false).changeString('');
                           });
                         }
@@ -59,7 +54,7 @@ class NextButton extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       child: Icon(
                         Icons.arrow_forward,
-                        color: buttonIconColor,
+                        color: Color(0xFF7886B8),
                       ),
                     ),
                   ),

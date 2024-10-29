@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../styles/styles.dart';
 import 'fields/phone_number_text_field.dart';
 
 class PhoneNumberWidget extends StatelessWidget {
@@ -11,11 +10,11 @@ class PhoneNumberWidget extends StatelessWidget {
     return Expanded(
       child: Container(
         height: 48,
-        margin: marginLeft10,
-        padding: paddingAll10,
+        margin: const EdgeInsets.only(left: 10),
+        padding: const EdgeInsets.all(10),
         alignment: Alignment.centerLeft,
         decoration: BoxDecoration(
-          color: lightField,
+          color: const Color(0x66F4F5FF),
           borderRadius: BorderRadius.circular(16),
         ),
         child: const Padding(

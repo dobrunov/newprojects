@@ -21,13 +21,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CountryProvider>(create: (context) => CountryProvider()),
         ChangeNotifierProvider<HintOpacityController>(create: (context) => HintOpacityController()),
         ChangeNotifierProvider<ButtonActiveController>(create: (context) => ButtonActiveController()),
-        ChangeNotifierProvider(create: (_) => TextController()),
+        ChangeNotifierProvider(create: (_) => TextControllers()),
         Provider<MaskController>(create: (context) => MaskController()),
       ],
       child: MaterialApp(
         theme: ThemeData(
           scaffoldBackgroundColor: background,
-          primaryColor: white,
+          primaryColor: const Color(0xFFFFFFFF),
         ),
         home: const Scaffold(
           resizeToAvoidBottomInset: false,

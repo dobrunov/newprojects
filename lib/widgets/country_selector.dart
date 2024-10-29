@@ -3,11 +3,12 @@ import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/buttons/country_button_content.dart';
 import 'package:phone_number_input_fromscratch/widgets/country_code_tile.dart';
-import 'package:phone_number_input_fromscratch/widgets/modal_label.dart';
+import 'package:phone_number_input_fromscratch/widgets/modal_header.dart';
 import 'package:phone_number_input_fromscratch/widgets/fields/search_field_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../config.dart';
+import '../controllers/text_controller.dart';
 import '../models/country.dart';
 
 class CountrySelector extends StatefulWidget {
@@ -62,7 +63,9 @@ class _CountrySelectorState extends State<CountrySelector> {
       isScrollControlled: true,
       backgroundColor: background,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
       ),
       context: context,
       builder: (context) => _CountrySelectorSheet(controller: _controller),
@@ -84,7 +87,7 @@ class _CountrySelectorSheet extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(20.0, 20, 20.0, 15),
-            child: ModalLabel(controller: controller),
+            child: ModalHeader(controller: controller),
           ),
           const SizedBox(height: 8),
           SearchFieldWidget(controller: controller),
@@ -95,7 +98,7 @@ class _CountrySelectorSheet extends StatelessWidget {
                 if (countryProvider.isLoading) {
                   return const Center(child: CircularProgressIndicator());
                 }
-                return _CountryList(countries: countryProvider.bestCountries);
+                return CountryList(countries: countryProvider.bestCountries);
               },
             ),
           ),
@@ -105,10 +108,10 @@ class _CountrySelectorSheet extends StatelessWidget {
   }
 }
 
-class _CountryList extends StatelessWidget {
+class CountryList extends StatelessWidget {
   final List<Country> countries;
 
-  const _CountryList({required this.countries});
+  const CountryList({super.key, required this.countries});
 
   @override
   Widget build(BuildContext context) {

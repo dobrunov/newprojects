@@ -6,7 +6,7 @@ import '../models/country.dart';
 class CountryService {
   static const String _baseUrl = 'https://restcountries.com/v2/all';
 
-  Future<List<Country>> getAll() async {
+  Future<List<Country>> getCountryList() async {
     final uri = Uri.parse(_baseUrl);
 
     try {

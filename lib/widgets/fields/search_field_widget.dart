@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../controllers/text_controller.dart';
 import '../../provider/country_provider.dart';
 import '../../styles/styles.dart';
 
@@ -33,9 +34,7 @@ class SearchFieldWidget extends StatelessWidget {
         cursorColor: textColor,
         decoration: InputDecoration(
           focusColor: textColor,
-
           prefixIcon: SvgPicture.asset('images/search_icon.svg', height: 10, width: 10, fit: BoxFit.scaleDown),
-          //
           border: InputBorder.none,
           isCollapsed: true,
           floatingLabelBehavior: FloatingLabelBehavior.never,

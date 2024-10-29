@@ -9,14 +9,18 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: const [
+      children: [
         Padding(
           padding: paddingLeftTopRight155015,
           child: Text(
             'Get Started',
-            style: header1,
+            style: TextStyle(
+              color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+              fontSize: 32,
+            ),
           ),
         ),
       ],
