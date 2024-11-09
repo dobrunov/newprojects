@@ -9,9 +9,7 @@ import '../../styles/styles.dart';
 import '../opacity_row.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
-  const PhoneNumberTextField({
-    Key? key,
-  }) : super(key: key);
+  const PhoneNumberTextField({Key? key}) : super(key: key);
 
   @override
   State<PhoneNumberTextField> createState() => _PhoneNumberTextFieldState();
@@ -21,15 +19,12 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
   late final TextEditingController controller;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    controller = Provider.of<TextControllers>(context, listen: false).phoneNumberTextController;
-    if (!controller.hasListeners) {
-      controller.addListener(() {
-        context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
-      });
-    }
+  void initState() {
+    super.initState();
+    controller = context.read<TextControllers>().phoneNumberTextController;
+    controller.addListener(() {
+      context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
+    });
   }
 
   final maskFormatter = MaskTextInputFormatter(
@@ -39,34 +34,45 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
   );
 
   @override
+  void dispose() {
+    controller.removeListener(() {
+      context.read<ButtonActiveController>().changeButtonActive(controller.text.length == 14);
+    });
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
-      child: Stack(children: [
-        TextFormField(
-          controller: controller,
-          style: phoneNumberText,
-          autofocus: true,
-          cursorColor: textColor,
-          cursorWidth: 2,
-          cursorHeight: 20,
-          keyboardType: TextInputType.phone,
-          inputFormatters: [
-            maskFormatter,
-            // FilteringTextInputFormatter(RegExp(r'^[()\d -]{1,14}$'), allow: true),
-          ],
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-            isCollapsed: true,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+      child: Stack(
+        children: [
+          TextFormField(
+            controller: controller,
+            style: phoneNumberText,
+            autofocus: true,
+            cursorColor: textColor,
+            cursorWidth: 1.5,
+            cursorHeight: 25.0,
+            keyboardType: TextInputType.phone,
+            inputFormatters: [maskFormatter],
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              isCollapsed: true,
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              contentPadding: EdgeInsets.symmetric(vertical: 3),
+            ),
+            onChanged: (newOpacity) => context.read<HintOpacityController>().changeString(newOpacity),
           ),
-          onChanged: (newOpacity) => context.read<HintOpacityController>().changeString(newOpacity),
-        ),
-        const Padding(
-          padding: EdgeInsets.zero,
-          child: OpacityRow(),
-        ),
-      ]),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 6),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: OpacityRow(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

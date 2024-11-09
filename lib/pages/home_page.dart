@@ -15,18 +15,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.sizeOf(context).width;
+    final h = MediaQuery.sizeOf(context).height;
     return SingleChildScrollView(
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 100.0),
-            child: HeaderWidget(),
+          Padding(
+            padding: EdgeInsets.only(bottom: h * 0.2),
+            child: const HeaderWidget(),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Padding(
-              padding: EdgeInsets.only(left: 15.0, right: 15.0),
-              child: Row(
+            width: w,
+            child: Padding(
+              padding: EdgeInsets.only(left: w * 0.05, right: w * 0.05),
+              child: const Row(
                 children: [
                   FlagCodeWidget(),
                   PhoneNumberWidget(),
@@ -34,9 +36,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 100.0),
-            child: NextButton(),
+          Padding(
+            padding: EdgeInsets.only(top: h * 0.2),
+            child: const NextButton(),
           ),
         ],
       ),

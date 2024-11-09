@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../styles/styles.dart';
-
 class CountryNameWidget extends StatelessWidget {
   const CountryNameWidget({
     Key? key,
@@ -13,20 +11,15 @@ class CountryNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            countryName,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
-        ],
+      child: Text(
+        countryName,
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(
+          color: Color(0xFFFFFFFF),
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
       ),
     );
   }

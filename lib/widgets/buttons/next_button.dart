@@ -23,20 +23,9 @@ class NextButton extends StatelessWidget {
               child: SizedBox(
                 height: 48,
                 width: 48,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-                      if (states.contains(MaterialState.disabled)) {
-                        return const Color(0x66F4F5FF);
-                      }
-                      return const Color(0xFFFFFFFF);
-                    }),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    )),
-                  ),
-                  onPressed: buttonActiveController.isButtonActive
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16.0),
+                  onTap: buttonActiveController.isButtonActive
                       ? () {
                           Navigator.push(
                             context,
@@ -49,9 +38,12 @@ class NextButton extends StatelessWidget {
                           });
                         }
                       : null,
-                  child: const Center(
-                    child: Padding(
-                      padding: EdgeInsets.zero,
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      color: buttonActiveController.isButtonActive ? const Color(0xFFFFFFFF) : const Color(0x66F4F5FF),
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: const Center(
                       child: Icon(
                         Icons.arrow_forward,
                         color: Color(0xFF7886B8),

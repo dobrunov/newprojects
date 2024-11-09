@@ -6,9 +6,7 @@ import '../controllers/opacity_controller.dart';
 import 'hint_text.dart';
 
 class OpacityRow extends StatefulWidget {
-  const OpacityRow({
-    Key? key,
-  }) : super(key: key);
+  const OpacityRow({Key? key}) : super(key: key);
 
   @override
   State<OpacityRow> createState() => _OpacityRowState();
@@ -20,9 +18,9 @@ class _OpacityRowState extends State<OpacityRow> {
 
   @override
   void didChangeDependencies() {
-    opacityList = context.watch<HintOpacityController>().getOpacity;
-    maskList = context.watch<MaskController>().getMaskList;
     super.didChangeDependencies();
+    opacityList = context.watch<HintOpacityController>().getOpacity ?? [];
+    maskList = context.watch<MaskController>().getMaskList ?? [];
   }
 
   @override
@@ -33,14 +31,14 @@ class _OpacityRowState extends State<OpacityRow> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: maskList.length * 10,
+            width: maskList.length * 10.0,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: maskList.length,
               itemBuilder: (BuildContext context, int index) {
                 return HintSymbolsWithOpacity(
-                  opacity: opacityList[index],
-                  text: maskList[index],
+                  opacity: opacityList.isNotEmpty ? opacityList[index] : 1.0,
+                  text: maskList.isNotEmpty ? maskList[index] : '',
                 );
               },
             ),

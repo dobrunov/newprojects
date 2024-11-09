@@ -1,5 +1,5 @@
 name: phone_number_input_fromscratch
-description: A new Flutter project.
+description: Flutter app
 
 
 publish_to: 'none'
@@ -7,23 +7,23 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.17.6 <3.5.0"
 
 
 dependencies:
   flutter:
     sdk: flutter
-  mask_text_input_formatter: ^2.4.0
-  provider: ^6.0.4
-  http: ^0.13.5
-  cupertino_icons: ^1.0.2
+  mask_text_input_formatter: ^2.9.0
+  provider: ^6.1.2
+  http: ^1.2.2
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_svg: ^1.1.5
-  google_fonts: ^3.0.1
+  google_fonts: ^6.2.1
   flutter_lints: ^2.0.0
 
 

@@ -18,7 +18,7 @@ class PhoneNumberWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: const Padding(
-          padding: EdgeInsets.only(top: 4.0),
+          padding: EdgeInsets.only(top: 2.0),
           child: PhoneNumberTextField(),
         ),
       ),
