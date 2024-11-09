@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         Provider<MaskController>(create: (context) => MaskController()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: background,
           primaryColor: const Color(0xFFFFFFFF),
