@@ -14,9 +14,9 @@ class HintOpacityController with ChangeNotifier {
     _currentHintOpacity = List.generate(maskController.getMaskList.length, (int index) => 1.0, growable: false);
   }
 
-  void changeString(String newString) {
+  void changeString(String text) {
     /// Amount of entered symbols in text field
-    int newStringLength = newString.length;
+    int newStringLength = text.length;
 
     for (var i = 0; i <= newStringLength - 1; i++) {
       _currentHintOpacity[i] = 0;

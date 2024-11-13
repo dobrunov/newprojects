@@ -6,6 +6,7 @@ import '../styles/styles.dart';
 import 'controllers/button_active_controller.dart';
 import 'controllers/mask_controller.dart';
 import 'controllers/opacity_controller.dart';
+import 'controllers/telephone_number_result_controller.dart';
 import 'controllers/text_controller.dart';
 import 'pages/home/home_page.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CountryProvider>(create: (context) => CountryProvider()),
         ChangeNotifierProvider<HintOpacityController>(create: (context) => HintOpacityController()),
         ChangeNotifierProvider<ButtonActiveController>(create: (context) => ButtonActiveController()),
+        ChangeNotifierProvider<TelephoneNumberResultController>(create: (context) => TelephoneNumberResultController()),
         ChangeNotifierProvider(create: (_) => TextControllers()),
         Provider<MaskController>(create: (context) => MaskController()),
       ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../controllers/telephone_number_result_controller.dart';
 import '../../styles/styles.dart';
 
 class DetailPage extends StatefulWidget {
@@ -12,32 +14,36 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    final telephoneNumberResult = context.watch<TelephoneNumberResultController>();
     return MaterialApp(
       theme: ThemeData(scaffoldBackgroundColor: background),
       home: Scaffold(
+        appBar: AppBar(),
         body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text(
-              'Happy time',
-              style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontWeight: FontWeight.bold,
-                fontSize: 32,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                telephoneNumberResult.telephoneNumberResult,
+                style: const TextStyle(
+                  color: Color(0xFFFFFFFF),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
               ),
-            ),
-            const SizedBox(height: 50),
-            IconButton(
-              onPressed: () {
-                // add func for reset button value
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.close,
-                size: 20.0,
+              const SizedBox(height: 50),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.close,
+                  size: 20.0,
+                ),
               ),
-            ),
-            const Text('Back'),
-          ]),
+              const Text('Back'),
+            ],
+          ),
         ),
       ),
     );

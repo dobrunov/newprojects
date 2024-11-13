@@ -4,8 +4,10 @@ import 'package:provider/provider.dart';
 
 import '../../controllers/button_active_controller.dart';
 import '../../controllers/opacity_controller.dart';
+import '../../controllers/telephone_number_result_controller.dart';
 import '../../controllers/text_controller.dart';
 import '../../pages/home/widgets/opacity_row.dart';
+import '../../provider/country_provider.dart';
 import '../../styles/styles.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
@@ -43,27 +45,30 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final countryProvider = context.watch<CountryProvider>();
     return Form(
       child: Stack(
         children: [
           TextFormField(
-            controller: controller,
-            style: phoneNumberText,
-            autofocus: true,
-            cursorColor: textColor,
-            cursorWidth: 1.5,
-            cursorHeight: 25.0,
-            keyboardType: TextInputType.phone,
-            inputFormatters: [maskFormatter],
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              isCollapsed: true,
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              contentPadding: EdgeInsets.symmetric(vertical: 3),
-            ),
-            onChanged: (newOpacity) => context.read<HintOpacityController>().changeString(newOpacity),
-          ),
+              controller: controller,
+              style: phoneNumberText,
+              autofocus: true,
+              cursorColor: textColor,
+              cursorWidth: 1.5,
+              cursorHeight: 25.0,
+              keyboardType: TextInputType.phone,
+              inputFormatters: [maskFormatter],
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                isCollapsed: true,
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                contentPadding: EdgeInsets.symmetric(vertical: 3),
+              ),
+              onChanged: (text) {
+                context.read<HintOpacityController>().changeString(text);
+                context.read<TelephoneNumberResultController>().changeTelephoneNumberResult(countryProvider.selectedCode, controller.text);
+              }),
           const Padding(
             padding: EdgeInsets.only(bottom: 6),
             child: Align(
