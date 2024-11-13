@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'fields/phone_number_text_field.dart';
+import '../../../widgets/fields/phone_number_text_field.dart';
 
 class PhoneNumberWidget extends StatelessWidget {
   const PhoneNumberWidget({super.key});

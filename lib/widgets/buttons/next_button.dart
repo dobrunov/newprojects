@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../controllers/opacity_controller.dart';
 import '../../controllers/text_controller.dart';
 import '../../controllers/button_active_controller.dart';
-import '../../pages/second_page.dart';
+import '../../pages/detail_page/detail_page.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class NextButton extends StatelessWidget {
                       ? () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const SecondPage()),
+                            MaterialPageRoute(builder: (context) => const DetailPage()),
                           );
 
                           Future.delayed(const Duration(seconds: 1), () {

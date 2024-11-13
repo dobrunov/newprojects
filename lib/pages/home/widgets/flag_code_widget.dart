@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../styles/styles.dart';
 import 'country_selector.dart';
-import '../styles/styles.dart';
 
 class FlagCodeWidget extends StatelessWidget {
   const FlagCodeWidget({

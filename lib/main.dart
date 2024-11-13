@@ -7,7 +7,7 @@ import 'controllers/button_active_controller.dart';
 import 'controllers/mask_controller.dart';
 import 'controllers/opacity_controller.dart';
 import 'controllers/text_controller.dart';
-import 'pages/home_page.dart';
+import 'pages/home/home_page.dart';
 
 void main() => runApp(const MyApp());
 

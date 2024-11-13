@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:phone_number_input_fromscratch/provider/country_provider.dart';
 import 'package:phone_number_input_fromscratch/styles/styles.dart';
 import 'package:phone_number_input_fromscratch/widgets/buttons/country_button_content.dart';
-import 'package:phone_number_input_fromscratch/widgets/country_code_tile.dart';
-import 'package:phone_number_input_fromscratch/widgets/modal_header.dart';
+import 'package:phone_number_input_fromscratch/pages/home/widgets/modal_header.dart';
 import 'package:phone_number_input_fromscratch/widgets/fields/search_field_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../config.dart';
-import '../controllers/text_controller.dart';
-import '../models/country.dart';
+import '../../../models/country.dart';
+import 'country_code_tile.dart';
 
 class CountrySelector extends StatefulWidget {
   const CountrySelector({Key? key}) : super(key: key);

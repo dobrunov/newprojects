@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import '../../controllers/button_active_controller.dart';
 import '../../controllers/opacity_controller.dart';
 import '../../controllers/text_controller.dart';
+import '../../pages/home/widgets/opacity_row.dart';
 import '../../styles/styles.dart';
-import '../opacity_row.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
   const PhoneNumberTextField({Key? key}) : super(key: key);
