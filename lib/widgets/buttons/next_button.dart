@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../../controllers/button_active_controller.dart';
 import '../../controllers/opacity_controller.dart';
 import '../../controllers/text_controller.dart';
-import '../../pages/detail_page/detail_page.dart';
+import '../../pages/detail_page/call_page.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class NextButton extends StatelessWidget {
                   onTap: buttonActiveController.isButtonActive
                       ? () {
                           navigatorKey.currentState?.push(
-                            MaterialPageRoute(builder: (context) => const DetailPage()),
+                            MaterialPageRoute(builder: (context) => const CallPage()),
                           );
 
                           Future.delayed(const Duration(seconds: 1), () {
