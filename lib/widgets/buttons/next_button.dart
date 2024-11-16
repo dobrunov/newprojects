@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:phone_number_input_fromscratch/main.dart';
 import 'package:provider/provider.dart';
 
+import '../../controllers/button_active_controller.dart';
 import '../../controllers/opacity_controller.dart';
 import '../../controllers/text_controller.dart';
-import '../../controllers/button_active_controller.dart';
 import '../../pages/detail_page/detail_page.dart';
 
 class NextButton extends StatelessWidget {
@@ -27,14 +28,13 @@ class NextButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16.0),
                   onTap: buttonActiveController.isButtonActive
                       ? () {
-                          Navigator.push(
-                            context,
+                          navigatorKey.currentState?.push(
                             MaterialPageRoute(builder: (context) => const DetailPage()),
                           );
 
                           Future.delayed(const Duration(seconds: 1), () {
                             textControllers.clearPhoneNumberText();
-                            Provider.of<HintOpacityController>(context, listen: false).changeString('');
+                            Provider.of<HintOpacityController>(navigatorKey.currentContext!, listen: false).changeString('');
                           });
                         }
                       : null,

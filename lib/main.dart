@@ -10,6 +10,8 @@ import 'controllers/telephone_number_result_controller.dart';
 import 'controllers/text_controller.dart';
 import 'pages/home/home_page.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        navigatorKey: navigatorKey,
         theme: ThemeData(
           scaffoldBackgroundColor: background,
           primaryColor: const Color(0xFFFFFFFF),
