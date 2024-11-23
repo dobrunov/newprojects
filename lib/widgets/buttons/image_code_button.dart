@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../styles/styles.dart';
 
-class ImageCodeWidget extends StatelessWidget {
-  const ImageCodeWidget({
+class ImageCodeButton extends StatelessWidget {
+  const ImageCodeButton({
     Key? key,
     required this.flags,
     required this.codes,

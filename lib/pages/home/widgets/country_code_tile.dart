@@ -23,7 +23,7 @@ class CountryCodeTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
           ),
-          child: ImageCodeWidget(
+          child: ImageCodeButton(
             flags: country.flags.png,
             codes: country.callingCodes.first,
           ),
