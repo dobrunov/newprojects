@@ -15,7 +15,7 @@ class HintOpacityController with ChangeNotifier {
   }
 
   void changeString(String text) {
-    /// Amount of entered symbols in text field
+    // Amount of entered symbols in text field
     int newStringLength = text.length;
 
     for (var i = 0; i <= newStringLength - 1; i++) {

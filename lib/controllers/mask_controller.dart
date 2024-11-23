@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 import '../config.dart';
 
 class MaskController {
@@ -8,7 +6,7 @@ class MaskController {
 
   MaskController() {
     _maskList = maskText.split('');
-    debugPrint(_maskList.toString());
+    // debugPrint(_maskList.toString());
   }
 
   List<String> get getMaskList => _maskList;
