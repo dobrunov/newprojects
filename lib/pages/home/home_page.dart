@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/header_widget.dart';
 import '../../widgets/buttons/next_button.dart';
 import 'widgets/flag_code_widget.dart';
+import 'widgets/header_widget.dart';
 import 'widgets/phone_number_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();

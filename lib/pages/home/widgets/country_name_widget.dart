@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CountryNameWidget extends StatelessWidget {
   const CountryNameWidget({
-    Key? key,
+    super.key,
     required this.countryName,
-  }) : super(key: key);
+  });
 
   final String countryName;
 

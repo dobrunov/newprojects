@@ -4,10 +4,10 @@ import '../../styles/styles.dart';
 
 class ImageCodeButton extends StatelessWidget {
   const ImageCodeButton({
-    Key? key,
+    super.key,
     required this.flags,
     required this.codes,
-  }) : super(key: key);
+  });
 
   final String flags;
   final String codes;

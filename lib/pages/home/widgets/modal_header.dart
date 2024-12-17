@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../controllers/text_controller.dart';
 import '../../../styles/styles.dart';
 
 class ModalHeader extends StatelessWidget {
   const ModalHeader({
-    Key? key,
+    super.key,
     required TextEditingController controller,
-  })  : _controller = controller,
-        super(key: key);
+  }) : _controller = controller;
 
   final TextEditingController _controller;
 

@@ -5,13 +5,13 @@ import '../../controllers/telephone_number_result_controller.dart';
 import '../../styles/styles.dart';
 
 class CallPage extends StatefulWidget {
-  const CallPage({Key? key}) : super(key: key);
+  const CallPage({super.key});
 
   @override
-  State<CallPage> createState() => _CallPageState();
+  State<CallPage> createState() => CallPageState();
 }
 
-class _CallPageState extends State<CallPage> {
+class CallPageState extends State<CallPage> {
   @override
   Widget build(BuildContext context) {
     final telephoneNumberResult = context.watch<TelephoneNumberResultController>();

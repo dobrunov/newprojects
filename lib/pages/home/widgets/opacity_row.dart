@@ -6,7 +6,7 @@ import '../../../controllers/opacity_controller.dart';
 import 'hint_text.dart';
 
 class OpacityRow extends StatefulWidget {
-  const OpacityRow({Key? key}) : super(key: key);
+  const OpacityRow({super.key});
 
   @override
   State<OpacityRow> createState() => _OpacityRowState();

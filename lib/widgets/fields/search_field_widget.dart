@@ -7,10 +7,9 @@ import '../../styles/styles.dart';
 
 class SearchFieldWidget extends StatelessWidget {
   const SearchFieldWidget({
-    Key? key,
+    super.key,
     required TextEditingController controller,
-  })  : _controller = controller,
-        super(key: key);
+  }) : _controller = controller;
 
   final TextEditingController _controller;
 

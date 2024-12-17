@@ -6,9 +6,9 @@ import 'country_name_widget.dart';
 
 class CountryCodeTile extends StatelessWidget {
   const CountryCodeTile({
-    Key? key,
+    super.key,
     required this.country,
-  }) : super(key: key);
+  });
 
   final Country country;
 

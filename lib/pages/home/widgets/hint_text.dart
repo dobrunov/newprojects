@@ -7,10 +7,10 @@ class HintSymbolsWithOpacity extends StatelessWidget {
   final String text;
 
   const HintSymbolsWithOpacity({
-    Key? key,
+    super.key,
     required this.opacity,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

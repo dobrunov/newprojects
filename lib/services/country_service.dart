@@ -1,10 +1,12 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
+import '../config.dart';
 import '../models/country.dart';
 
 class CountryService {
-  static const String _baseUrl = 'https://restcountries.com/v2/all';
+  final String _baseUrl = Config.baseUrl;
 
   Future<List<Country>> getCountryList() async {
     final uri = Uri.parse(_baseUrl);
