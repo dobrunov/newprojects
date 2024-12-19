@@ -3,15 +3,15 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/button_active_controller.dart';
-import '../../controllers/opacity_controller.dart';
+import '../../controllers/hint_opacity_controller.dart';
 import '../../controllers/telephone_number_result_controller.dart';
-import '../../controllers/text_controller.dart';
+import '../../controllers/text_controllers.dart';
 import '../../pages/home/widgets/opacity_row.dart';
 import '../../provider/country_provider.dart';
 import '../../styles/styles.dart';
 
 class PhoneNumberTextField extends StatefulWidget {
-  const PhoneNumberTextField({Key? key}) : super(key: key);
+  const PhoneNumberTextField({super.key});
 
   @override
   State<PhoneNumberTextField> createState() => _PhoneNumberTextFieldState();

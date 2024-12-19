@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../../styles/styles.dart';
 
-class HintSymbolsWithOpacity extends StatelessWidget {
+class HintSymbolWithOpacity extends StatelessWidget {
   final double opacity;
   final String text;
 
-  const HintSymbolsWithOpacity({
+  const HintSymbolWithOpacity({
     super.key,
     required this.opacity,
     required this.text,

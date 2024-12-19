@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:phone_number_input_fromscratch/controllers/button_active_controller.dart';
-import 'package:phone_number_input_fromscratch/controllers/opacity_controller.dart';
+import 'package:phone_number_input_fromscratch/controllers/hint_opacity_controller.dart';
 import 'package:phone_number_input_fromscratch/controllers/telephone_number_result_controller.dart';
-import 'package:phone_number_input_fromscratch/controllers/text_controller.dart';
+import 'package:phone_number_input_fromscratch/controllers/text_controllers.dart';
 import 'package:phone_number_input_fromscratch/main.dart';
 import 'package:phone_number_input_fromscratch/pages/detail_page/call_page.dart';
 import 'package:phone_number_input_fromscratch/widgets/buttons/next_button.dart';

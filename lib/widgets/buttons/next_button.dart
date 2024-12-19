@@ -3,8 +3,8 @@ import 'package:phone_number_input_fromscratch/main.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/button_active_controller.dart';
-import '../../controllers/opacity_controller.dart';
-import '../../controllers/text_controller.dart';
+import '../../controllers/hint_opacity_controller.dart';
+import '../../controllers/text_controllers.dart';
 import '../../pages/detail_page/call_page.dart';
 
 class NextButton extends StatelessWidget {

@@ -4,12 +4,11 @@ import '../../styles/styles.dart';
 
 class CountryButtonContent extends StatelessWidget {
   const CountryButtonContent({
-    Key? key,
+    super.key,
     required String initFlag,
     required String initCode,
   })  : _initFlag = initFlag,
-        _initCode = initCode,
-        super(key: key);
+        _initCode = initCode;
 
   final String _initFlag;
   final String _initCode;
@@ -21,8 +20,7 @@ class CountryButtonContent extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(4.0),
-          child: Image.network(_initFlag,
-              width: 24.0, height: 20.0, fit: BoxFit.fill),
+          child: Image.network(_initFlag, width: 24.0, height: 20.0, fit: BoxFit.fill),
         ),
         const SizedBox(width: 6),
         Text(

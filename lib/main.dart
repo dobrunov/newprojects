@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 import '../provider/country_provider.dart';
 import '../styles/styles.dart';
 import 'controllers/button_active_controller.dart';
+import 'controllers/hint_opacity_controller.dart';
 import 'controllers/mask_controller.dart';
-import 'controllers/opacity_controller.dart';
 import 'controllers/telephone_number_result_controller.dart';
-import 'controllers/text_controller.dart';
+import 'controllers/text_controllers.dart';
 import 'pages/home/home_page.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

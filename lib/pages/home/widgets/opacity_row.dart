@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../controllers/hint_opacity_controller.dart';
 import '../../../controllers/mask_controller.dart';
-import '../../../controllers/opacity_controller.dart';
-import 'hint_text.dart';
+import 'hint_symbol_with_opacity.dart';
 
 class OpacityRow extends StatefulWidget {
   const OpacityRow({super.key});
@@ -36,7 +36,7 @@ class _OpacityRowState extends State<OpacityRow> {
               scrollDirection: Axis.horizontal,
               itemCount: maskList.length,
               itemBuilder: (BuildContext context, int index) {
-                return HintSymbolsWithOpacity(
+                return HintSymbolWithOpacity(
                   opacity: opacityList.isNotEmpty ? opacityList[index] : 1.0,
                   text: maskList.isNotEmpty ? maskList[index] : '',
                 );
