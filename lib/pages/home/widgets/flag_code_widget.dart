@@ -19,9 +19,7 @@ class FlagCodeWidget extends StatelessWidget {
         color: lightField,
         borderRadius: BorderRadius.circular(16),
       ),
-      child:
-          //
-          const CountrySelector(),
+      child: const CountrySelector(),
     );
   }
 }

@@ -17,16 +17,9 @@ class CountryCodeTile extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          height: 20,
-          width: 90,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: ImageCodeButton(
-            flags: country.flags.png,
-            codes: country.callingCodes.first,
-          ),
+        ImageCodeButton(
+          flags: country.flags.png,
+          codes: country.callingCodes.first,
         ),
         const SizedBox(width: 12),
         CountryNameWidget(countryName: country.name),

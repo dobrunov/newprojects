@@ -19,8 +19,8 @@ class _OpacityRowState extends State<OpacityRow> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    opacityList = context.watch<HintOpacityController>().getOpacity ?? [];
-    maskList = context.watch<MaskController>().getMaskList ?? [];
+    opacityList = context.watch<HintOpacityController>().getOpacity;
+    maskList = context.watch<MaskController>().getMaskList;
   }
 
   @override

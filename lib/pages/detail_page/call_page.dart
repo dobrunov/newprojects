@@ -20,7 +20,7 @@ class CallPageState extends State<CallPage> {
         backgroundColor: background,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF594C74)),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -38,7 +38,7 @@ class CallPageState extends State<CallPage> {
             Text(
               telephoneNumberResult.telephoneNumberResult,
               style: const TextStyle(
-                color: Color(0xFFFFFFFF),
+                color: Color(0xFF594C74),
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
               ),

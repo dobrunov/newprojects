@@ -14,17 +14,25 @@ class ImageCodeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(4.0),
-        child: Image.network(flags, width: 24.0, height: 20.0, fit: BoxFit.fill),
+    return Container(
+      height: 20,
+      width: 90,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4.0),
+            child: Image.network(flags, width: 24.0, height: 20.0, fit: BoxFit.fill),
+          ),
+          Text(
+            '+$codes',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: countryCodeText,
+          ),
+        ],
       ),
-      Text(
-        '+$codes',
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: countryCodeText,
-      ),
-    ]);
+    );
   }
 }
